@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      tr.bg {
+        background-color: #2680ff;
+        color: #feee00;
+      }
+
+      tr.danger {
+        background-color: #feee00;
+        color: #2680ff;
+      }
+
+      table.border {
+        border-collapse: collapse;
+      }
+
+      table.border th {
+        padding: 5px;
+        border: 1px solid white;
+      }
+
+      table.border td {
+        padding: 5px;
+        border: 1px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1" style="width: 100%">
+      <tr class="bg">
+        <td style="width: 20%" align="center">
+          <h1>EMSA</h1>
+        </td>
+        <td style="width: 60%; font-weight: bold" align="center">
+          <table>
+            <tr>
+              <td align="center">EMSA</td>
+            </tr>
+            <tr>
+              <td align="center">
+                Direccion: 30 avenida 3 - 05, zona 4 Bosques de San Nicolas
+              </td>
+            </tr>
+            <tr>
+              <td align="center">Telefono: 2613-7000</td>
+            </tr>
+          </table>
+        </td>
+        <td style="width: 20%">
+          <table class="border" style="width: 100%; font-weight: bold">
+            <tr>
+              <td align="center">
+                Fecha: Guatemala @Fecha
+              </td>
+            </tr>
+            <tr>
+              <td align="center">COMPROBANTE</td>
+            </tr>
+            <tr>
+              <td align="center">No. @NoPago</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr class="danger">
+        <td colspan="3" height="30"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="center">
+          <table style="width: 100%">
+            <tr>
+              <td colspan="1">Fecha:</td>
+              <td colspan="2">@FechaPago</td>
+            </tr>
+            <tr>
+              <td colspan="1">Nombre:</td>
+              <td colspan="3">@Cliente</td>
+            </tr>
+            <tr>
+              <td colspan="1">No. Tarjeta:</td>
+              <td colspan="3">@NoTarjeta</td>
+            </tr>
+            <tr>
+              <td colspan="1">No. Referencia:</td>
+              <td colspan="3">@Referencia</td>
+            </tr>           
+            <tr>
+              <td colspan="1">Estado Transaccion:</td>
+              <td colspan="3">Procesada</td>
+            </tr>
+            <tr>
+              <td colspan="1">Tipo Pago:</td>
+              <td colspan="3">Tarjeta</td>
+            </tr>
+            <tr>
+              <td colspan="1">Metodo de pago:</td>
+              <td colspan="3">Visanet Guatemala, C.A.</td>
+            </tr>
+            <tr>
+              <td colspan="1">Mensaje:</td>
+              <td colspan="3">(01)Pagado electronicamente</td>
+            </tr>
+          </table>
+        </td>
+        <td></td>
+      </tr>
+      <tr class="bg">
+        <td
+          colspan="3"
+          height="30"
+          align="center"
+          style="width: 60%; font-weight: bold"
+        >
+          Reporte de Asientos Comprados del @evento
+        </td>
+      </tr>
+      <td></td>
+      <td align="center">
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th colspan="1">Numero Boleto</th>
+              <th colspan="2">Seccion</th>
+              <th colspan="1">Numero Asiento</th>
+              <th colspan="1">Precio</th>
+              <th colspan="2">Fecha Evento</th>
+            </tr>
+          </thead>
+          <tbody id="Eventos">
+            
+          </tbody>
+        </table>
+      </td>
+      <td></td>
+      <tr class="danger">
+        <td height="30"></td>
+        <td height="30" style="font-weight: bold">Total:</td>
+        <td height="30" style="font-weight: bold">Q @TotalPago</td>
+      </tr>
+    </table>
+  </body>
+</html>

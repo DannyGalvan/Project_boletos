@@ -8,6 +8,7 @@ import com.mycompany.ventatickets.models.Asientos;
 import com.mycompany.ventatickets.models.AsientosEventoBoletos;
 import com.mycompany.ventatickets.models.DatesEvent;
 import com.mycompany.ventatickets.models.Events;
+import com.mycompany.ventatickets.models.PagosBoleto;
 import com.mycompany.ventatickets.models.User;
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class Context {
     private static boolean isLogIn = false;
     private static Events event = null;
     private static DatesEvent date = null;
+    private static PagosBoleto pago = null;
     private static ArrayList<Asientos> asientosPago = new ArrayList<>();
     private static ArrayList<AsientosEventoBoletos> datosBoleto = new ArrayList<>();
     private static double total = 0.00;
@@ -173,5 +175,19 @@ public class Context {
      */
     public static void setDatosBoleto(ArrayList<AsientosEventoBoletos> aDatosBoleto) {
         datosBoleto = aDatosBoleto;
+    }
+
+    /**
+     * @return the pago
+     */
+    public static PagosBoleto getPago() {
+        return pago;
+    }
+
+    /**
+     * @param aPago the pago to set
+     */
+    public static void setPago(PagosBoleto aPago) {
+        pago = aPago;
     }
 }

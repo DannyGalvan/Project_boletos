@@ -112,8 +112,7 @@ public class Login implements Initializable {
         text.managedProperty().bind(check.selectedProperty());
         text.visibleProperty().bind(check.selectedProperty());
         
-        text.textProperty().bindBidirectional(pass.textProperty());
-    
+        text.textProperty().bindBidirectional(pass.textProperty());    
     }
     
 }

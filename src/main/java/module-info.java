@@ -1,6 +1,9 @@
 module com.mycompany.ventatickets {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
+    requires javafx.graphics;
+    requires javafx.media;
     requires java.sql;
     requires javafx.base;
     requires java.base;

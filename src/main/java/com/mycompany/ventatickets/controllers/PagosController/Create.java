@@ -181,6 +181,7 @@ public class Create implements Initializable {
          pago.setQuantity(Context.getDatosBoleto().size());
          pago.setTotal(Context.getTotal());
          
+         
          if (_pago.CreatePago(pago)) {
              for (AsientosEventoBoletos asientosEventoBoletos : Context.getDatosBoleto()) {
                  if (!_boletos.CreateTicket(asientosEventoBoletos)) {
@@ -190,7 +191,8 @@ public class Create implements Initializable {
                  Email.sendHTMLEmail("Ticket Comprado!", Context.getEvent(), Context.getDate(), asientosEventoBoletos);
              }
             Validations.AlertMessage("Compra realizada con exito",Alert.AlertType.INFORMATION, "Operacion Exitosa");
-            App.setRoot("Home");
+            Context.setPago(pago);
+            App.view("Detail");
          }else{
              Validations.AlertMessage("Error al realizar cobro", Alert.AlertType.ERROR, "Error en transaccion!");
          }

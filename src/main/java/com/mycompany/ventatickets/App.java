@@ -16,11 +16,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {      
-        primaryStage = stage;
-        scene = new Scene(Location.loadFXML("Home"),1000, 800);
-        scene.getStylesheets().add(Location.loadCSS("Global").toExternalForm());        
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        try {
+            primaryStage = stage;
+            scene = new Scene(Location.loadFXML("Home","Index"),1000, 800);
+            scene.getStylesheets().add(Location.loadCSS("Global").toExternalForm());        
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
     
     /**

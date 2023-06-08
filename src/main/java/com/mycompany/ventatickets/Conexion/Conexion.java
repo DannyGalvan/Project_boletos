@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class Conexion {  
     
-    private static final Dotenv dotenv = Dotenv.load();   
+    private static final Dotenv dotenv = Dotenv.load();
     
      /**
      * Constructor predeterminado de la clase Conexion.
