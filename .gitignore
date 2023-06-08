@@ -1,0 +1,28 @@
+# Archivos y carpetas generados por IDEs
+.idea/
+.vscode/
+*.iml
+
+# Archivos compilados
+/target/
+/bin/
+/out/
+
+# Dependencias gestionadas por herramientas de construcción
+/.gradle/
+/maven/
+/lib/
+
+# Archivos de configuración específicos de tu entorno local
+application.properties
+application.yml
+
+# Archivos de registro
+*.log
+
+# Archivos temporales
+*.tmp
+
+# Otros archivos y carpetas que deseas ignorar
+.env
+.env.local

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="692.0" prefWidth="844.0" stylesheets="@../../styles/Global.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ventatickets.controllers.EventsController.Create">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Creacion de eventos" GridPane.halignment="CENTER" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="15.0" />
+         </GridPane.margin>
+      </Label>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="regresar" mnemonicParsing="false" styleClass="button-danger" text="Regresar a la lista">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Button>
+            <Label text="Nombre del Evento">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombre" />
+            <Label contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="Sinopsis">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="synopsis" prefHeight="200.0" prefWidth="200.0" promptText="Ingresa la Descripcion del evento..." wrapText="true" />
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../../images/SIN_IMAGEN.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="uploadImage" mnemonicParsing="false" styleClass="button-primary" text="Cargar Imagen">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <GridPane.margin>
+            <Insets left="20.0" right="20.0" top="50.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="684.0" prefWidth="442.0" GridPane.columnIndex="1">
+         <children>
+            <VBox prefHeight="59.0" prefWidth="311.0">
+               <children>
+                  <Label text="Fecha y Hora Inicial del Evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="fechaInicio" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" showWeekNumbers="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <TextField fx:id="horaInicio" maxWidth="1.7976931348623157E308" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="50.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="71.0" prefWidth="311.0">
+               <children>
+                  <Label text="Fecha y Hora Final del Evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="fechaFin" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" showWeekNumbers="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <TextField fx:id="horaFin" maxWidth="1.7976931348623157E308" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="71.0" prefWidth="311.0">
+               <children>
+                  <Label text="Fecha y Hora Visibilidad del Evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="fechaVisible" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" showWeekNumbers="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <TextField fx:id="horaVisible" maxWidth="1.7976931348623157E308" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="71.0" prefWidth="311.0">
+               <children>
+                  <Label text="Fecha y Hora Ocultar  Evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <DatePicker fx:id="fechaOculto" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="143.0" showWeekNumbers="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <TextField fx:id="horaOculto" maxWidth="1.7976931348623157E308" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="88.0" prefWidth="358.0">
+               <children>
+                  <Label text="Responsable del Evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="responsable" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Precios de Cada una de las Secciones">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <GridPane hgap="2.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Planta_A">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Planta_B" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Vip" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Vip&amp;M" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="planta_a" GridPane.rowIndex="1" />
+                        <TextField fx:id="planta_b" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="vip" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="vip_m" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Label text="Duracion del evento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="duracion" />
+                  <Label text="Observacion: las fechas  en que el evento estara disponible para el usuarios final se asignan en el apartado de modificar evento luego de haberlo creado" textFill="#d73232" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <Button fx:id="save" mnemonicParsing="false" styleClass="button-primary" text="Guardar Evento">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </children>
+</GridPane>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ventatickets.controllers.UsersController.Create">
+   <children>
+      <Label text="Crear Nuevo Usuario">
+         <VBox.margin>
+            <Insets top="25.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Button fx:id="regresar" mnemonicParsing="false" styleClass="button-danger" text="Regresar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Label text="Nombre">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombre" promptText="Ingresa un Nombre..." />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="15.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Label text="Correo Electronico">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="correo" promptText="Ingresa un correo" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="20.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Label text="Contraseña">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="clave" promptText="Ingresa una contraseña" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Label text="Numero">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="numero" promptText="ingresa un numero" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Label text="Activo">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="activo" maxWidth="1.7976931348623157E308" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="58.0" prefWidth="539.0">
+         <children>
+            <Label text="Rol">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rol" maxWidth="1.7976931348623157E308" />
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <Button fx:id="crear" mnemonicParsing="false" styleClass="button-primary" text="Crear Usuario">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</VBox>

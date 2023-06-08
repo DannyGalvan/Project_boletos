@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.ventatickets.controllers.SeatController.Index">
+   <children>
+      <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="254.0" text="Lista de Asientos Existentes">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Label>
+      <VBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="600.0" />
+      <VBox>
+         <children>
+            <TableView fx:id="tablaAsientos" prefHeight="350.0" prefWidth="539.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
+                  <TableColumn fx:id="fila" prefWidth="75.0" text="Fila" />
+                  <TableColumn fx:id="columna" prefWidth="100.79998779296875" text="Columna" />
+                  <TableColumn fx:id="lado" prefWidth="100.79998779296875" text="Lado" />
+                  <TableColumn fx:id="seccion" prefWidth="114.39996337890625" text="Seccion" />
+                  <TableColumn fx:id="activo" prefWidth="75.0" text="Activo" />
+               </columns>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="20.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="47.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="dashboard" mnemonicParsing="false" text="Dashboard" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="30.0" right="30.0" top="20.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>
