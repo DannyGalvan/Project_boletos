@@ -39,29 +39,16 @@ import javafx.util.Duration;
 public class Create implements Initializable {
     
     @FXML
-    public Button cancelar;
-    @FXML
-    public TextField cvv;
+    public TextField cvv, postal, direccion, nombre, numero;
     @FXML
     public ComboBox<String> mes;
     @FXML
-    public TextField nombre;
-    @FXML
-    public TextField numero;
-    @FXML
-    public Button procesar;
-    @FXML
-    public Label timer;
-    @FXML
     public ComboBox<Integer> year;
     @FXML
-    public TextField postal;
+    public Button procesar, datos, cancelar;
     @FXML
-    public TextField direccion;
-    @FXML
-    public Label progress;
-
-    
+    public Label timer, progress;
+   
     private Timeline timeline;
     private  int DURATION_IN_SECONDS = 300;
     private final DAsientosEventoBoletos _boletos = new DAsientosEventoBoletos();
@@ -79,6 +66,10 @@ public class Create implements Initializable {
             Params<Events> param = new Params<>();
             param.setDato(Context.getEvent());
             App.setRoot("Home", "EventDetail", param);
+        });
+        
+        datos.setOnMouseClicked(event -> {
+            App.view("Index");
         });
         
         procesar.setOnMouseClicked(event -> {    
@@ -181,17 +172,22 @@ public class Create implements Initializable {
          pago.setQuantity(Context.getDatosBoleto().size());
          pago.setTotal(Context.getTotal());
          
-         
-         if (_pago.CreatePago(pago)) {
+         int generatedId = _pago.CreatePago(pago);
+         if (generatedId != 0) {
+             pago.setId(generatedId);
              for (AsientosEventoBoletos asientosEventoBoletos : Context.getDatosBoleto()) {
-                 if (!_boletos.CreateTicket(asientosEventoBoletos)) {
+                 int noBoleto = _boletos.CreateTicket(asientosEventoBoletos);
+                 if (noBoleto == 0) {
                      Validations.AlertMessage("Error al comprar Ticket!",Alert.AlertType.ERROR, "Error");
                      return;
                  }
+                 asientosEventoBoletos.setId(noBoleto);
                  Email.sendHTMLEmail("Ticket Comprado!", Context.getEvent(), Context.getDate(), asientosEventoBoletos);
              }
+             
             Validations.AlertMessage("Compra realizada con exito",Alert.AlertType.INFORMATION, "Operacion Exitosa");
             Context.setPago(pago);
+            timeline.stop();
             App.view("Detail");
          }else{
              Validations.AlertMessage("Error al realizar cobro", Alert.AlertType.ERROR, "Error en transaccion!");

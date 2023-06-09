@@ -42,7 +42,6 @@ public class Detail implements Initializable {
             });
             WebEngine webEngine = web.getEngine();
             String path = Html.generarteHTMl(Context.getEvent(), Context.getDate(), Context.getDatosBoleto(), Context.getAsientosPago(), Context.getPago());
-            System.err.println(path);
             // Carga el archivo HTML local
             webEngine.load(path);
         } catch (Exception e) {

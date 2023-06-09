@@ -51,25 +51,14 @@ public class Asientos implements Initializable {
    }
     
     @FXML
-    public GridPane initialGrid;
+    public GridPane initialGrid;    
     @FXML
-    public Label viewAsientos;    
+    public Button regresar, proceder;    
     @FXML
-    public Button regresar;    
+    public TextField vipM, vip, plateaA, plateaB;    
     @FXML
-    public TextField plateaA;
-    @FXML
-    public TextField plateaB;    
-    @FXML
-    public TextField vip;
-    @FXML
-    public TextField vipM;    
-    @FXML
-    public Label timerLabel;    
-    @FXML
-    public Label pagar;    
-    @FXML
-    public Button proceder;
+    public Label timerLabel, pagar, viewAsientos;    
+    
     
     private double total = 0.00;
     private Timeline timeline;
@@ -400,7 +389,7 @@ public class Asientos implements Initializable {
             Validations.AlertMessage("Debes Seleccionar Todos Los Asientos Antes De Proceder Con El Pago", Alert.AlertType.WARNING, "Alerta");
             return;
         }
-        
+        timeline.stop();
         App.setRoot("Pagos");
     }    
 }

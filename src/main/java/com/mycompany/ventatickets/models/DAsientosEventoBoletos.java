@@ -57,15 +57,15 @@ public class DAsientosEventoBoletos {
          return listaBoletos;
     }
     
-    public boolean CreateTicket(AsientosEventoBoletos model){
-        boolean results = false;
+    public int CreateTicket(AsientosEventoBoletos model){
+        int results = 0;
         
          try (Connection conn = Conexion.getConection()) {
              StringBuilder query = new StringBuilder();
              query.append("insert into asientos_evento_boletos(idasiento,idfecha,precio,codigoasiento,nombre,apellido,correo,numero)");
              query.append("VALUES (?,?,?,?,?,?,?,?)");
              
-             PreparedStatement sql = conn.prepareStatement(query.toString());
+             PreparedStatement sql = conn.prepareStatement(query.toString(), PreparedStatement.RETURN_GENERATED_KEYS);
              sql.setInt(1, model.getIdasiento());
              sql.setInt(2, model.getIdfecha());
              sql.setDouble(3, model.getPrecio());
@@ -77,7 +77,12 @@ public class DAsientosEventoBoletos {
              
              int rowAffected = sql.executeUpdate();
              
-             results = rowAffected != 0;
+             if (rowAffected != 0) {
+                 ResultSet generatedKey = sql.getGeneratedKeys();
+                 if (generatedKey.next()) {
+                     results = generatedKey.getInt(1);
+                 }
+             }
              
          } catch (SQLException ex) { 
              System.out.println("hubo un error " + ex.toString());

@@ -11,6 +11,7 @@ import com.mycompany.ventatickets.models.DatesEvent;
 import com.mycompany.ventatickets.models.Events;
 import com.mycompany.ventatickets.models.PagosBoleto;
 import com.mycompany.ventatickets.models.UniversalDateTimeFormat;
+import java.util.UUID;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -57,15 +58,15 @@ public class Html {
             Path pathRoot = Paths.get(App.class.getResource("/mailTemplate/Index.html").toURI());
             String filePath = pathRoot.toString();
             String date = fecha.getFecha_evento(UniversalDateTimeFormat.getDdMMYY_HHmmss12H());
-            ArrayList<String> reemplazar = new ArrayList<>(Arrays.asList("@FechaPago", "@Fecha", "@Cliente", "@NoTarjeta", "@Referencia","@evento", "@TotalPago"));
-            ArrayList<String> nuevas = new ArrayList<>(Arrays.asList(date, date, pago.getName(), pago.getNumber(), pago.getAdress(), evento.getName(), String.valueOf(pago.getTotal())));
+            ArrayList<String> reemplazar = new ArrayList<>(Arrays.asList("@FechaPago", "@Fecha", "@Cliente", "@NoTarjeta", "@Referencia","@evento", "@TotalPago", "@NoPago"));
+            ArrayList<String> nuevas = new ArrayList<>(Arrays.asList(date, date, pago.getName(), pago.getNumber(), pago.getAdress(), evento.getName(), String.valueOf(pago.getTotal()),String.valueOf(pago.getId())));
             String html = Html.replaceWith(filePath, reemplazar, nuevas);
             Document document = Jsoup.parse(html);
             Element table = document.select("#Eventos").first();
             
             for (int i = 0; i < asientos.size(); i++) {
                 Element row = new Element("tr");
-                row.appendChild(new Element("td").attr("colspan", "1").text(String.valueOf(asientos.get(i).getId())));
+                row.appendChild(new Element("td").attr("colspan", "1").text(String.valueOf(boletos.get(i).getId())));
                 row.appendChild(new Element("td").attr("colspan", "2").text(asientos.get(i).getSection().getDescription()));
                 row.appendChild(new Element("td").attr("colspan", "1").text(boletos.get(i).getCodigoAsiento()));
                 row.appendChild(new Element("td").attr("colspan", "1").text(String.valueOf(boletos.get(i).getPrecio())));
@@ -74,7 +75,8 @@ public class Html {
             }
             
             String dirHtml = System.getProperty("user.dir")+"/src/main/resources/html";
-            String name = "reporte"+pago.getIdCliente();
+            UUID uuid = UUID.randomUUID();
+            String name = "reporte_"+pago.getId()+"_"+uuid.toString();
             String relativePath = "/src/main/resources/html/"+name+".html";
             String pathResource = System.getProperty("user.dir")+relativePath;
             File root = new File(dirHtml);
@@ -89,7 +91,6 @@ public class Html {
                 bfwriter.flush();
             }
 
-            System.out.println("Documento HTML modificado guardado correctamente.");
             path = file.toURI().toURL().toString();
             
         } catch (IOException | URISyntaxException e) {

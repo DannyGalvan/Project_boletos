@@ -49,15 +49,15 @@ public class DPagosBoleto {
          return listaPagos;
     }
     
-    public boolean CreatePago(PagosBoleto model){
-        boolean results = false;
+    public int CreatePago(PagosBoleto model){
+        int results = 0;
         
          try (Connection conn = Conexion.getConection()) {
              StringBuilder query = new StringBuilder();
              query.append("insert into pago_boletos(idcliente,nombre_cliente,no_tarjeta,codigo_postal,direccion,cantidad_boletos,total,fechacompra)");
              query.append("VALUES (?,?,?,?,?,?,?,?)");
              
-             PreparedStatement sql = conn.prepareStatement(query.toString());
+             PreparedStatement sql = conn.prepareStatement(query.toString(),PreparedStatement.RETURN_GENERATED_KEYS);
              sql.setInt(1, model.getIdCliente());
              sql.setString(2, model.getName());
              sql.setString(3, model.getNumber());
@@ -69,7 +69,12 @@ public class DPagosBoleto {
              
              int rowAffected = sql.executeUpdate();
              
-             results = rowAffected != 0;
+             if (rowAffected != 0) {
+                 ResultSet generatedKey = sql.getGeneratedKeys();
+                 if (generatedKey.next()) {
+                     results = generatedKey.getInt(1);
+                 }
+             }
              
          } catch (SQLException ex) { 
              System.out.println("hubo un error " + ex.toString());

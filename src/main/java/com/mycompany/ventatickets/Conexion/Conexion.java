@@ -23,7 +23,7 @@ public class Conexion {
      * Permite establecer una conexión a la base de datos.
      */
     public Conexion() {
-        // Código del constructor
+
     }    
     
    /**

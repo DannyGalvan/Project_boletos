@@ -29,21 +29,35 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <VBox alignment="TOP_RIGHT" prefHeight="44.0" prefWidth="795.0">
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
                <children>
-                  <Button fx:id="cancel" mnemonicParsing="false" styleClass="button-danger" text="Cancelar Operacion">
+                  <Button fx:id="cancel" mnemonicParsing="false" styleClass="button-danger" text="Cancelar Operacion" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="asientos" mnemonicParsing="false" styleClass="button-danger" text="Regresar a Seleccionar Asientos">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
                </children>
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
-            </VBox>
+            </GridPane>
             <HBox alignment="CENTER" prefHeight="37.0" prefWidth="735.0">
                <children>
-                  <Button fx:id="tickets" mnemonicParsing="false" styleClass="button-success" text="Ingresar Datos Por Boleto">
+                  <Button fx:id="tickets" mnemonicParsing="false" styleClass="button-success" text="Datos Por Boleto">
                      <HBox.margin>
                         <Insets right="100.0" />
                      </HBox.margin>
@@ -51,7 +65,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="todos" mnemonicParsing="false" styleClass="button-success" text="Ingresar Datos Para Todos Los Boletos">
+                  <Button fx:id="todos" mnemonicParsing="false" styleClass="button-success" text="Datos Para Todos Los Boletos">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

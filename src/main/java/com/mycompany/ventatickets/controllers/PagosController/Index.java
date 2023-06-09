@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -42,13 +43,7 @@ public class Index implements Initializable {
     @FXML
     public VBox container;
     @FXML
-    public Button tickets;
-    @FXML
-    public Button todos;
-    @FXML
-    public Button procesar;
-    @FXML
-    public Button cancel;
+    public Button cancel, asientos, procesar, todos, tickets;
 
 
     private Timeline timeline;
@@ -85,12 +80,17 @@ public class Index implements Initializable {
             seatSelection = true;
         });
         
-        procesar.setOnMouseClicked(event -> {
+        procesar.setOnMouseClicked((var event) -> {
             if (seatSelection) {
                 this.capturarDatosMultiples();
             }else{
                 this.capturarDatos();
             }
+            timeline.stop();
+        });
+        
+        asientos.setOnMouseClicked(event -> {
+            App.setRoot("Home", "Asientos");
         });
         
         cancel.setOnMouseClicked(event -> {
@@ -171,6 +171,15 @@ public class Index implements Initializable {
         TextField numberField = new TextField();
         numberField.setId("number");
         
+        if (!Context.getDatosBoleto().isEmpty()) {
+            AsientosEventoBoletos dato = Context.getDatosBoleto().get(0);
+            nameField.setText(dato.getName());
+            lastNameField.setText(dato.getLastName());
+            emailField.setText(dato.getEmail());
+            confirmEmailField.setText(dato.getEmail());
+            numberField.setText(dato.getNumber());
+        }
+        
         box.getChildren().addAll(nameLabel,nameField,lastNameLabel,lastNameField,emailLabel,emailField,confirmEmailLabel,confirmEmailField,numberLabel,numberField);
         
         return box;
@@ -209,6 +218,15 @@ public class Index implements Initializable {
         TextField numberField = new TextField();
         numberField.setId(String.format("number%s",index));
         
+         if (Context.getDatosBoleto().size() == Context.getAsientosPago().size()) {
+            AsientosEventoBoletos dato = Context.getDatosBoleto().get(index);
+            nameField.setText(dato.getName());
+            lastNameField.setText(dato.getLastName());
+            emailField.setText(dato.getEmail());
+            confirmEmailField.setText(dato.getEmail());
+            numberField.setText(dato.getNumber());
+        }
+        
         box.getChildren().addAll(title,nameLabel,nameField,lastNameLabel,lastNameField,emailLabel,emailField,confirmEmailLabel,confirmEmailField,numberLabel,numberField);
         
         return box;
@@ -235,6 +253,7 @@ public class Index implements Initializable {
         
         for (int i = 0; i < Context.getAsientosPago().size(); i++) {
              TextField nameField = (TextField) container.lookup("#"+String.format("name%s",i));
+             System.out.println("#"+String.format("name%s",i));
              Asientos actual = Context.getAsientosPago().get(i);
              String nombre = actual.getFile()+actual.getColumn()+actual.getLado();
              String name = Validations.ValidarCampo(nameField.getText(), String.format("El Campo nombre del boleto %s no puede ser vacio", nombre));
@@ -279,6 +298,7 @@ public class Index implements Initializable {
              boletos.add(boleto);
         }
         
+        timeline.stop();
         Context.setDatosBoleto(boletos);   
         App.view("Create");
     }
@@ -330,7 +350,8 @@ public class Index implements Initializable {
 
             boletos.add(boleto);
         }
-
+        
+        timeline.stop();
         Context.setDatosBoleto(boletos);    
         App.view("Create");
     }
